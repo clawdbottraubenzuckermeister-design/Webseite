@@ -1,50 +1,41 @@
-# 🚀 PLAN.md – Website-Optimierung: Refactoring, Performance & Design
+# PLAN.md – Website Upgrade Session 3
 
-## Projektziel
-Die bestehende Traubenzuckermeister-Webseite optimieren:
-1. Code in separate Dateien aufteilen (CSS → `style.css`, JS → `script.js`)
-2. Performance verbessern (Mousemove-Throttling, YouTube Lazy-Loading)
-3. Design-Upgrades (Footer, Favicon, will-change Optimierung)
-4. Rainbow-Glow & Mobile-Fix
+## 🎯 Projektziel
+Texte anpassen, YouTube-Playlist einbinden, Discord-Icon hinzufügen, und Hintergrundvideo-Blur reduzieren.
 
 ---
 
-## Phase 1: Dateien aufteilen
-- [x] **Task 1.1** – CSS extrahieren → `style.css` erstellt (1091 Zeilen) ✅
-- [x] **Task 1.2** – JS extrahieren → `script.js` erstellt (383 Zeilen) ✅
-- [x] **Task 1.3** – `index.html` aufgeräumt (1777 → 321 Zeilen) ✅
+## 🔍 Qualitätskontrolle & Bewertung
+
+### ✅ Sinnvoll & Umsetzbar:
+1. **Schlauchfiguren Text ändern** → Einfache Textänderung, kein Problem.
+2. **Kunstwerk Text ändern** → "Wie geil ist das denn?" passt zum lockeren Vibe der Seite. ✅
+3. **Videomeme Text anpassen** → Sinnvoll, der technische Hinweis ("System scannt den Ordner") ist für Besucher irrelevant.
+4. **Discord-Icon hinzufügen** → Sehr gute Idee! Passt perfekt neben GitHub. Discord-ID `268788679684653057` → Link wird `https://discord.com/users/268788679684653057`.
+5. **YouTube-Playlist einbinden** → Die richtige Playlist-ID `PLv0Xw-MWGS26bH0KDwrEL84660-v4uWes` wird eingesetzt.
+
+### ~~⚠️ Qualitätskontrolle – Widerspruch~~ (ENTSCHIEDEN: Blur bleibt):
+6. ~~**Hintergrundvideo weniger verschwommen**~~ → User hat zugestimmt: Blur bleibt bei `blur(8px)` + `opacity: 0.5`.
+
+### ~~⚠️ Qualitätskontrolle – YouTube Music Player~~ (ENTSCHIEDEN: Normal lassen):
+7. ~~**YouTube Music Fancy Player wie Spotify**~~ → User hat zugestimmt: Normaler YouTube-Embed bleibt.
 
 ---
 
-## Phase 2: Performance-Optimierungen
-- [x] **Task 2.1** – `requestAnimationFrame`-basiertes Throttling für Maus-Events ✅
-- [x] **Task 2.2** – YouTube `loading="lazy"` + Video `preload="metadata"` ✅
+## 📋 Mikro-Aufgaben
 
----
+### Phase 1: Textänderungen (HTML)
+- [x] **Task 1.1**: Schlauchfiguren-Beschreibung geändert ✅
+- [x] **Task 1.2**: Kunstwerk-Beschreibung geändert → "Wie geil ist das denn? 🔥" ✅
+- [x] **Task 1.3**: Videomeme-Beschreibung geändert → Scanner-Hinweis entfernt ✅
+- [x] **Task 1.4**: Study Playlist Embed + Link zur richtigen Playlist aktualisiert ✅
 
-## Phase 3: Design-Upgrades
-- [x] **Task 3.1** – Eleganter Footer + Emoji Favicon (🍇) + `will-change` auf `:hover` ✅
-- [x] **Task 3.2** – Finaler Browser-Test bestanden ✅
+### Phase 2: Discord-Icon hinzufügen (HTML)
+- [x] **Task 2.1**: Discord SVG-Icon + Link hinzugefügt ✅
 
----
+### ~~Phase 3: Hintergrundvideo anpassen (CSS)~~ – GESTRICHEN
+- [x] ~~**Task 3.1**~~: Blur bleibt bei 8px (User-Entscheidung)
+- [x] ~~**Task 3.2**~~: Opacity bleibt bei 0.5 (User-Entscheidung)
 
-## Phase 4: Rainbow-Glow & Mobile-Fix
-- [x] **Task 4.1** – `@keyframes rainbow-shift` (8s, linearer 300%-Scroll durch Regenbogen-Gradient) ✅
-- [x] **Task 4.2** – `@keyframes rainbow-glow` (6-Stufen text-shadow durch alle Farben) ✅
-- [x] **Task 4.3** – `.welcome-title` → Rainbow-Gradient + `clamp(1.3rem, 6vw, 3.5rem)` ✅
-- [x] **Task 4.4** – `.section-title` → Rainbow-Gradient + `clamp(1.5rem, 5vw, 2.5rem)` ✅
-- [x] **Task 4.5** – Alten `font-size: 2rem` Override bei 600px entfernt (clamp() übernimmt) ✅
-
----
-
-## Architektur-Entscheidungen
-| Entscheidung | Begründung |
-|---|---|
-| CSS/JS in separate Dateien | Browser-Caching, paralleles Laden, bessere Wartbarkeit |
-| RAF-Throttling für mousemove | Reduziert DOM-Updates von 120/s auf 60/s (=1 pro Render-Frame) |
-| YouTube `loading="lazy"` | Iframes laden erst beim Scrollen, spart ~2MB beim Seitenaufruf |
-| `will-change` nur bei `:hover` | Verhindert permanente GPU-Speicher-Reservierung für alle Karten |
-| Emoji Favicon via SVG | Kein extra Datei nötig, funktioniert in allen modernen Browsern |
-| Video `preload="metadata"` | Statt 21MB sofort zu laden, nur Metadaten laden |
-| `clamp()` statt Media-Query Override | Fluid Typography: skaliert automatisch statt harter Breakpoint |
-| `rainbow-shift` 0→300% linear | Endlos-Loop ohne Rücksprung: Gradient rollt immer vorwärts durch |
+### Phase 4: Verifikation
+- [x] **Task 4.1**: Seite im Browser öffnen und alle Änderungen visuell prüfen ✅
