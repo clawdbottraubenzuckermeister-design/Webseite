@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traubenzuckermeister</title>
+  <meta name="description" content="Traubenzuckermeister - Welcome to my world." />
+
+  <!-- Favicon (lege eine Datei namens favicon.png/.jpg/.ico/.webp in den Ordner!) -->
+  <link rel="icon" id="dynamic-favicon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍇</text></svg>">
+
+  <!-- Google Fonts für ein elegantes, fließendes Design -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  
+  <!-- Tippy.js CSS für die Tooltips -->
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css" />
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="no-scroll">
+
+  <!-- Das Licht für den Maus-Glow Effekt -->
+  <div class="mouse-glow" id="mouse-glow"></div>
+
+  <!-- 1. Willkommens-Overlay -->
+  <div id="preload-overlay">
+    <div class="overlay-content">
+      <h1 class="welcome-title">Traubenzuckermeister</h1>
+      <span class="click-hint">Klick hier, Traubenzuckermeister</span>
+    </div>
+  </div>
+
+  <!-- 2. Videohintergrund & Overlay -->
+  <div class="video-background">
+    <!-- 📂 DATEINAME: background.mp4 (in gleichen Ordner legen!) -->
+    <video id="bg-video" autoplay muted playsinline loop preload="metadata">
+      <source src="background.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="video-overlay"></div>
+
+  <!-- 3. Hauptinhalt -->
+  <main id="main-content">
+    <div class="glass-card">
+      
+      <!-- Profilbild mit ID für das Easter Egg -->
+      <div class="profile-circle" id="profile-pic" data-tippy-content="Klick mich!">
+        <!-- 📂 DATEINAME: profilbild.jpg (oder .png / .webp) -->
+        <img id="profile-pic-img" src="profilbild.jpg" alt="Traubenzuckermeister" onerror="this.src='https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop'" />
+      </div>
+      
+      <!-- Zitat / Text (Mit Text-Reveal Animation!) -->
+      <div class="speech-bubble">
+        <div class="reveal-line">
+          <span>Im Wein da liegt die Weisheit,</span>
+        </div>
+        <div class="reveal-line">
+          <span>doch <span class="highlight">im Schnaps</span> da liegt die Kraft.</span>
+        </div>
+      </div>
+      
+      <!-- Social Links (Youtube entfernt!) -->
+      <nav class="social-icons" aria-label="Social links">
+        <!-- GEÄNDERT: Öffnet sich nun brav in einem neuen Tab! -->
+        <a href="https://github.com/clawdbottraubenzuckermeister-design" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub" data-tippy-content="GitHub Profile">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+          </svg>
+        </a>
+      </nav>
+
+      <!-- Satisfying Scroll Button -->
+      <a href="#projects" class="btn-satisfying" data-tippy-content="Scrolle zu meinen Werken">
+        Projekte ansehen
+        <svg class="scroll-down-icon" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6"></path>
+        </svg>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- 4. Projekte Sektion -->
+  <section id="projects">
+    <h2 class="section-title">Meine Ausstellung</h2>
+    
+    <div class="projects-grid">
+      
+      <!-- Projekt 1: Schlauchfiguren PROJEKT (Groß / 2 Spalten) -->
+      <div class="project-card col-span-2">
+        <div class="spotlight-bg"></div>
+        <div class="spotlight-border"></div>
+        <div class="project-media" style="pointer-events: none;">
+          <div class="glass-pill">✨ Interactive</div>
+          <iframe src="https://clawdbottraubenzuckermeister-design.github.io/Schlauchfiguren-/" tabindex="-1"></iframe>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Schlauchfiguren Design</h3>
+          <p class="project-desc">Ein spannendes interaktives Web-Erlebnis. Im neuen Apple-Style Grid nimmt es eine dominante Hauptrolle ein!</p>
+          <!-- GEÄNDERT: Öffnet sich nun brav in einem neuen Tab! -->
+          <a href="https://clawdbottraubenzuckermeister-design.github.io/Schlauchfiguren-/" target="_blank" rel="noopener noreferrer" class="btn-satisfying" style="align-self: flex-start;">
+            Website besuchen
+          </a>
+        </div>
+      </div>
+
+      <!-- Projekt 2: Kunstwerk (Bilddatei / 1 Spalte) -->
+      <div class="project-card col-span-1">
+        <div class="spotlight-bg"></div>
+        <div class="spotlight-border"></div>
+        <div class="project-media">
+          <div class="glass-pill">🎨 Design</div>
+          <!-- 📂 DATEINAME: Kunstwerk.jpg (oder .png / .webp) -->
+          <img id="kunstwerk-preview" src="Kunstwerk.jpg" alt="Projekt Bild" onerror="this.src='https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop'">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Kunstwerk & Design</h3>
+          <p class="project-desc">Dieses Projekt nutzt nun deine lokale Bilddatei. <span class="file-hint">(Benötigte Datei: Kunstwerk.jpg)</span></p>
+          <a href="#" id="kunstwerk-trigger" class="btn-satisfying media-modal-trigger" data-media-type="image" data-media-src="Kunstwerk.jpg">
+            Im Kino-Modus ansehen
+          </a>
+        </div>
+      </div>
+
+      <!-- Projekt 3: YouTube Playlist Karte (1 Spalte) -->
+      <div class="project-card col-span-1">
+        <div class="spotlight-bg"></div>
+        <div class="spotlight-border"></div>
+        <div class="project-media" style="background: #000; display: flex; align-items: center; justify-content: center; padding: 0;">
+          <div class="glass-pill">🎵 YouTube Music</div>
+          <!-- Youtube Playlist Embed -->
+          <iframe style="pointer-events: auto; width: 100%; height: 100%;" src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Study Playlist</h3>
+          <p class="project-desc">Teile deinen Vibe! Ein eingebetteter YouTube Music/Video Player. Perfekt für Kommilitonen.</p>
+          <!-- GEÄNDERT: Öffnet sich nun brav in einem neuen Tab! -->
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="btn-satisfying">
+            Auf YouTube öffnen
+          </a>
+        </div>
+      </div>
+
+      <!-- Projekt 4: Lofi Study Stream (Groß / 2 Spalten) -->
+      <div class="project-card col-span-2">
+        <div class="spotlight-bg"></div>
+        <div class="spotlight-border"></div>
+        <div class="project-media">
+          <div class="glass-pill">🎥 Stream</div>
+          <iframe src="https://www.youtube.com/embed/jfKfPfyJRdk?controls=0&mute=1&autoplay=1&loop=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="pointer-events: auto;" loading="lazy"></iframe>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Lofi Study Stream</h3>
+          <p class="project-desc">Hier läuft ein entspannter Stream als Dauerschleife. Klicke auf den Button, um es komplett abzudunkeln!</p>
+          <a href="#" class="btn-satisfying media-modal-trigger" data-media-type="iframe" data-media-src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1" style="align-self: flex-start;">
+            Im Kino-Modus ansehen
+          </a>
+        </div>
+      </div>
+
+      <!-- Projekt 5: Lustiges Zitat (Banner / 3 Spalten) -->
+      <div class="project-card col-span-3" style="justify-content: center; text-align: center;">
+        <div class="spotlight-bg"></div>
+        <div class="spotlight-border"></div>
+        <div class="project-content" style="height: auto; flex-grow: 0; padding: 60px 30px;">
+          <h3 class="project-title" style="font-size: 2.2rem; color: #a881ff; font-family: 'Playfair Display', serif; margin-bottom: 20px;">
+            "When gambling, you can win 2000% of your money,<br>but you can only lose 100%. Do the math!"
+          </h3>
+          <p class="project-desc" style="max-width: 600px; margin: 0 auto;">Manchmal braucht ein Projekt kein Bild, sondern nur die Wahrheit. Mathematik lügt nie. 🎰</p>
+        </div>
+      </div>
+
+      <!-- Projekt 6: Lieblings-Videomeme (Bento Groß / 2 Spalten) -->
+      <div class="project-card col-span-2">
+        <div class="spotlight-bg"></div>
+        <div class="spotlight-border"></div>
+        <div class="project-media">
+          <div class="glass-pill">😂 Video Meme</div>
+          <!-- 📂 DATEINAME: meme-video.mp4 -->
+          <video id="meme-video-preview" autoplay loop muted playsinline>
+            <source src="https://cdn.pixabay.com/video/2020/05/25/40141-424594186_large.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Mein Lieblings-Videomeme</h3>
+          <p class="project-desc">Ein Meisterwerk des Internets. Das System scannt den Ordner und findet automatisch dein Video. <span class="file-hint">(Benötigte Datei: meme-video.mp4)</span></p>
+          <a href="#" id="meme-video-trigger" class="btn-satisfying media-modal-trigger" data-media-type="video" data-media-src="https://cdn.pixabay.com/video/2020/05/25/40141-424594186_large.mp4" style="align-self: flex-start;">
+            Im Kino-Modus ansehen
+          </a>
+        </div>
+      </div>
+
+      <!-- Projekt 7: Lieblings-Bildmeme (1 Spalte) -->
+      <div class="project-card col-span-1">
+        <div class="spotlight-bg"></div>
+        <div class="spotlight-border"></div>
+        <div class="project-media">
+          <div class="glass-pill">🖼️ Meme</div>
+          <!-- 📂 DATEINAME: meme-bild.jpg -->
+          <img id="meme-bild-preview" src="https://images.unsplash.com/photo-1531259683007-016a7b628fc3?q=80&w=2000&auto=format&fit=crop" alt="Lieblingsmeme">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Aktuelles Lieblingsmeme</h3>
+          <p class="project-desc">Bilder sagen mehr als tausend Worte. <span class="file-hint">(Benötigte Datei: meme-bild.jpg)</span></p>
+          <a href="#" id="meme-bild-trigger" class="btn-satisfying media-modal-trigger" data-media-type="image" data-media-src="https://images.unsplash.com/photo-1531259683007-016a7b628fc3?q=80&w=2000&auto=format&fit=crop">
+            Im Kino-Modus ansehen
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NEUER DUMMY BUTTON GANZ UNTEN -->
+    <div style="margin-top: 80px; text-align: center; width: 100%;">
+      <a href="#" class="btn-satisfying dummy-btn">Wer ist Traubenzuckermeister?</a>
+    </div>
+
+  </section>
+
+  <!-- 5. Footer -->
+  <footer class="site-footer">
+    <div class="footer-line"></div>
+    <p class="footer-text">Built with <span class="footer-heart">♥</span> by <span class="footer-name">Traubenzuckermeister</span></p>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- === 3-STUFEN FAKE CAPTCHA OVERLAY ======== -->
+  <!-- ========================================== -->
+  <div id="captcha-overlay" class="captcha-overlay">
+    
+    <!-- STUFE 1: Die Checkbox -->
+    <div id="captcha-stage-1" class="captcha-stage active">
+      <div class="captcha-header">Sicherheitsüberprüfung erforderlich</div>
+      <div class="captcha-checkbox-widget" id="captcha-checkbox-btn">
+        <div class="captcha-checkbox-box" id="captcha-checkbox-box">
+          <div class="checkmark">✔</div>
+        </div>
+        <div class="captcha-checkbox-label">Ich bin kein Roboter</div>
+        <div class="captcha-branding">
+          <!-- Fake Logo (erinnert an reCAPTCHA) -->
+          <svg class="captcha-branding-icon" viewBox="0 0 24 24" fill="none" stroke="#4a90e2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <div class="captcha-branding-text">rePROTECT</div>
+          <div class="captcha-branding-links">Privacy - Terms</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STUFE 2: Loading Spinner -->
+    <div id="captcha-stage-2" class="captcha-stage">
+      <div class="captcha-spinner-container">
+        <div class="captcha-spinner"></div>
+        <div class="captcha-spinner-text">Verifizierung läuft... Bitte warten.</div>
+      </div>
+    </div>
+
+    <!-- STUFE 3: Das eigentliche Snake "CAPTCHA" -->
+    <div id="captcha-stage-3" class="captcha-stage">
+      <div class="captcha-game-container">
+        <div class="captcha-game-header">
+          <svg class="shield-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          Erweiterte Sicherheitsüberprüfung
+        </div>
+        <div class="captcha-game-subtext">Auffälliges Verhalten erkannt. Bitte lösen Sie diese Aufgabe.</div>
+        
+        <div class="captcha-score-bar">
+          <span class="captcha-score-label">Benötigte Datenpakete:</span>
+          <span class="captcha-score-value" id="captcha-score">0/10</span>
+        </div>
+        
+        <canvas id="snake-canvas"></canvas>
+        
+        <div class="captcha-controls-hint">
+          Steuerung: <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> oder Pfeiltasten (Mobile: Wischen)
+        </div>
+        
+        <button id="captcha-cancel-btn" class="captcha-cancel-btn">Abbrechen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- === ERFOLGS-MODAL (Nach Gewinn) === -->
+  <div id="captcha-success-overlay" class="captcha-success-overlay">
+    <div class="captcha-success-content">
+      <div class="captcha-success-verified">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        Verifizierung erfolgreich
+      </div>
+      <span class="captcha-success-emoji">🥀🥀🥀</span>
+      <h2 class="captcha-success-text">Frag doch einfach wer ich bin</h2>
+      <button id="captcha-success-close" class="captcha-success-close">VERSTANDEN</button>
+    </div>
+  </div>
+
+  <!-- --- Das universelle Medien Kino-Modal --- -->
+  <div id="video-modal" class="modal-overlay">
+    <div class="modal-content-wrapper">
+      <div class="modal-video-container">
+        <iframe id="modal-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display: none;"></iframe>
+        <video id="modal-video" controls autoplay loop playsinline style="display: none;"></video>
+        <img id="modal-img" src="" alt="Meme in Groß" style="display: none;">
+      </div>
+      <button id="modal-close-btn" class="modal-close-btn">SCHLIESSEN & WEITER</button>
+      <p class="modal-hint-text" id="modal-hint-text"></p>
+    </div>
+  </div>
+
+  <!-- Skripte für Tooltips (Tippy.js) -->
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
