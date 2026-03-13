@@ -279,6 +279,7 @@ class SnakeCAPTCHA {
   _win() {
     // Erstmal NICHT sofort isWon setzen, damit der Draw-Loop weiterläuft
     // und die Partikel sichtbar sind!
+    if (window.playWinSound) window.playWinSound();
     this.winFlash = 1.0; // Weißer Blitz
     
     // Riesige Partikel-Explosion über das ganze Feld

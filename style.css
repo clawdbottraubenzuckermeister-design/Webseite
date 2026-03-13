@@ -17,6 +17,15 @@
       overflow: hidden;
     }
 
+    /* Page Transition: Butterweicher Fade-Out beim Navigieren */
+    body {
+      transition: opacity 0.4s ease;
+    }
+
+    body.page-leaving {
+      opacity: 0;
+    }
+
     /* Edle, minimalistische Scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
@@ -231,28 +240,32 @@
     }
 
     .reveal-line {
-      overflow: hidden; 
       display: block; 
       padding-bottom: 5px; 
     }
 
     .reveal-line > span {
       display: inline-block; 
-      transform: translateY(120%); 
+      filter: blur(8px);
       opacity: 0;
-      transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.8s ease;
+      transform: scale(0.96);
+      transition: filter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                  opacity 1.0s ease, 
+                  transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     main.visible .reveal-line:nth-child(1) > span {
       transition-delay: 0.7s; 
-      transform: translateY(0); 
+      filter: blur(0px);
       opacity: 1; 
+      transform: scale(1);
     }
 
     main.visible .reveal-line:nth-child(2) > span {
-      transition-delay: 0.9s; 
-      transform: translateY(0); 
+      transition-delay: 1.0s; 
+      filter: blur(0px);
       opacity: 1; 
+      transform: scale(1);
     }
 
     .speech-bubble .highlight {
@@ -529,6 +542,43 @@
       display: flex; 
       align-items: center; 
       gap: 6px;
+    }
+
+    /* Audio Visualizer Bars im Glass-Pill */
+    .audio-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 12px;
+      margin-left: 4px;
+    }
+
+    .audio-bar {
+      display: block;
+      width: 3px;
+      background: #a881ff;
+      border-radius: 1px;
+      animation: audio-bounce 1.2s ease-in-out infinite;
+    }
+
+    .audio-bar:nth-child(1) {
+      height: 40%;
+      animation-delay: 0s;
+    }
+
+    .audio-bar:nth-child(2) {
+      height: 70%;
+      animation-delay: 0.2s;
+    }
+
+    .audio-bar:nth-child(3) {
+      height: 50%;
+      animation-delay: 0.4s;
+    }
+
+    @keyframes audio-bounce {
+      0%, 100% { transform: scaleY(0.4); }
+      50% { transform: scaleY(1); }
     }
 
     /* Maus-Glow Effekt */

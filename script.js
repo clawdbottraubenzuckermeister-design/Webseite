@@ -34,6 +34,56 @@
         arrow: false 
       });
 
+      // --- Micro-Sounds (Web Audio API, kein externer Download) ---
+      let audioCtx = null;
+      const getAudioCtx = () => {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        return audioCtx;
+      };
+
+      // Synthetischer Klick-Sound (extrem leise, kurzer Sinus-Blip)
+      window.playClickSound = () => {
+        try {
+          const ctx = getAudioCtx();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(800, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.08);
+          gain.gain.setValueAtTime(0.06, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+          osc.start(ctx.currentTime);
+          osc.stop(ctx.currentTime + 0.1);
+        } catch(e) { /* Audio nicht verfügbar, stille Fehlerbehandlung */ }
+      };
+
+      // Synthetischer Erfolgs-Sound (kurzer Chime, 3 aufsteigende Töne)
+      window.playWinSound = () => {
+        try {
+          const ctx = getAudioCtx();
+          const notes = [523.25, 659.25, 783.99]; // C5, E5, G5
+          notes.forEach((freq, i) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.12);
+            gain.gain.setValueAtTime(0.08, ctx.currentTime + i * 0.12);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.12 + 0.3);
+            osc.start(ctx.currentTime + i * 0.12);
+            osc.stop(ctx.currentTime + i * 0.12 + 0.3);
+          });
+        } catch(e) { /* Audio nicht verfügbar, stille Fehlerbehandlung */ }
+      };
+
+      // Klick-Sound auf alle satisfying Buttons registrieren
+      document.querySelectorAll('.btn-satisfying').forEach(btn => {
+        btn.addEventListener('click', () => window.playClickSound());
+      });
+
       // --- Background Video laden & Einblenden ---
       const bgVideo = document.getElementById("bg-video");
 
@@ -386,6 +436,30 @@
         if (e.target === mediaModal) { 
           closeMediaModal(); 
         }
+      });
+
+      // --- Page Transition: Butterweicher Fade-Out bei internen Links ---
+      document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+        
+        // Ignoriere: externe Links, neue Tabs, Anchor-Links, Hash-Links, preventDefault'd
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('javascript:')) return;
+        if (link.target === '_blank') return;
+        if (link.classList.contains('media-modal-trigger')) return;
+        if (link.classList.contains('dummy-btn')) return;
+        
+        // Nur same-origin Links (interne Navigation)
+        try {
+          const url = new URL(href, window.location.origin);
+          if (url.origin !== window.location.origin) return;
+        } catch { return; }
+        
+        // Fade-Out → Navigate
+        e.preventDefault();
+        document.body.classList.add('page-leaving');
+        setTimeout(() => { window.location.href = href; }, 400);
       });
 
       // --- Performance-optimiertes Mousemove (RAF Throttling) ---

@@ -1,41 +1,39 @@
-# PLAN.md – Website Upgrade Session 3
+# PLAN.md – Website Upgrade Session 6
 
 ## 🎯 Projektziel
-Texte anpassen, YouTube-Playlist einbinden, Discord-Icon hinzufügen, und Hintergrundvideo-Blur reduzieren.
+4 Under-the-Radar Features: Lofi Audio-Visualizer, Blur-Reveal Zitat-Animation, Klick-Sounds (ohne Hover!), Page Transitions.
 
 ---
 
 ## 🔍 Qualitätskontrolle & Bewertung
 
-### ✅ Sinnvoll & Umsetzbar:
-1. **Schlauchfiguren Text ändern** → Einfache Textänderung, kein Problem.
-2. **Kunstwerk Text ändern** → "Wie geil ist das denn?" passt zum lockeren Vibe der Seite. ✅
-3. **Videomeme Text anpassen** → Sinnvoll, der technische Hinweis ("System scannt den Ordner") ist für Besucher irrelevant.
-4. **Discord-Icon hinzufügen** → Sehr gute Idee! Passt perfekt neben GitHub. Discord-ID `268788679684653057` → Link wird `https://discord.com/users/268788679684653057`.
-5. **YouTube-Playlist einbinden** → Die richtige Playlist-ID `PLv0Xw-MWGS26bH0KDwrEL84660-v4uWes` wird eingesetzt.
+### ✅ Genehmigt:
+1. **Lofi Audio-Visualizer** → 3 lila CSS-Balken im Stream-Badge UND YouTube Music Badge (pure CSS)
+2. **Blur-Reveal Zitat** → Cinematischer `blur → focus` Effekt statt Slide-Up
+3. **Page Transitions** → Fade-Out für interne Links (zukunftssicher)
+4. **Text-Umbenennung** → "Study Playlist" → "Musik Playlist"
 
-### ~~⚠️ Qualitätskontrolle – Widerspruch~~ (ENTSCHIEDEN: Blur bleibt):
-6. ~~**Hintergrundvideo weniger verschwommen**~~ → User hat zugestimmt: Blur bleibt bei `blur(8px)` + `opacity: 0.5`.
-
-### ~~⚠️ Qualitätskontrolle – YouTube Music Player~~ (ENTSCHIEDEN: Normal lassen):
-7. ~~**YouTube Music Fancy Player wie Spotify**~~ → User hat zugestimmt: Normaler YouTube-Embed bleibt.
+### ⚠️ Teilweise abgelehnt (User zugestimmt):
+5. **Micro-Sounds** → NUR Klick-Sound + Erfolgs-Sound. KEIN Hover-Swoosh (UX-Noise)
 
 ---
 
 ## 📋 Mikro-Aufgaben
 
-### Phase 1: Textänderungen (HTML)
-- [x] **Task 1.1**: Schlauchfiguren-Beschreibung geändert ✅
-- [x] **Task 1.2**: Kunstwerk-Beschreibung geändert → "Wie geil ist das denn? 🔥" ✅
-- [x] **Task 1.3**: Videomeme-Beschreibung geändert → Scanner-Hinweis entfernt ✅
-- [x] **Task 1.4**: Study Playlist Embed + Link zur richtigen Playlist aktualisiert ✅
+### Phase 1: Lofi Audio-Visualizer + Text (CSS + HTML)
+- [x] **Task 1.1**: HTML — Audio-Balken in Lofi Stream + YouTube Music Pills eingefügt; "Study Playlist" → "Musik Playlist" umbenannt ✅
+- [x] **Task 1.2**: CSS — `@keyframes audio-bounce` Animation + `.audio-bar` + `.audio-bars` Styling hinzugefügt ✅
 
-### Phase 2: Discord-Icon hinzufügen (HTML)
-- [x] **Task 2.1**: Discord SVG-Icon + Link hinzugefügt ✅
+### Phase 2: Blur-Reveal Zitat-Animation (CSS)
+- [x] **Task 2.1**: CSS — Slide-Up durch cinematischen `blur(8px) → blur(0px)` + `scale(0.96 → 1)` Effekt ersetzt ✅
 
-### ~~Phase 3: Hintergrundvideo anpassen (CSS)~~ – GESTRICHEN
-- [x] ~~**Task 3.1**~~: Blur bleibt bei 8px (User-Entscheidung)
-- [x] ~~**Task 3.2**~~: Opacity bleibt bei 0.5 (User-Entscheidung)
+### Phase 3: Klick-Sounds & Erfolgs-Sound (JS)
+- [x] **Task 3.1**: JS — Web Audio API mit `playClickSound()` + `playWinSound()` auf alle `.btn-satisfying` Buttons ✅
+- [x] **Task 3.2**: snake.js — `playWinSound()` in `_win()` Methode eingebaut ✅
 
-### Phase 4: Verifikation
-- [x] **Task 4.1**: Seite im Browser öffnen und alle Änderungen visuell prüfen ✅
+### Phase 4: Page Transition Fade-Out (CSS + JS)
+- [x] **Task 4.1**: CSS `body.page-leaving` + JS Event-Listener für same-origin Links mit 400ms Fade-Out ✅
+
+### Phase 5: Dokumentation & Verifikation
+- [x] **Task 5.1**: Session-Log aktualisiert mit allen Session 6 Änderungen ✅
+- [x] **Task 5.2**: Browser-Verifikation bestanden + Spacing gegen GitHub-Repo gecheckt (identisch) ✅
