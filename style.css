@@ -26,6 +26,12 @@
       opacity: 0;
     }
 
+    /* Performance: Animationen pausieren wenn off-screen */
+    .anim-paused,
+    .anim-paused * {
+      animation-play-state: paused !important;
+    }
+
     /* Edle, minimalistische Scrollbar */
     ::-webkit-scrollbar {
       width: 8px;

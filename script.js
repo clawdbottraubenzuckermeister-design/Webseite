@@ -148,6 +148,38 @@
         observer.observe(card);
       });
 
+      // --- Performance: Lazy iFrame Loading (nur laden wenn sichtbar) ---
+      const iframeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const iframe = entry.target;
+            if (iframe.dataset.src && !iframe.src) {
+              iframe.src = iframe.dataset.src;
+            }
+            iframeObserver.unobserve(iframe);
+          }
+        });
+      }, { rootMargin: '200px' }); // 200px vorher laden für flüssiges Erlebnis
+
+      document.querySelectorAll('.lazy-iframe').forEach(iframe => {
+        iframeObserver.observe(iframe);
+      });
+
+      // --- Performance: Animationen pausieren wenn off-screen ---
+      const animObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('anim-paused');
+          } else {
+            entry.target.classList.add('anim-paused');
+          }
+        });
+      }, { rootMargin: '50px' });
+
+      // Glass-card (float-subtle), section-title (rainbow), audio-bars
+      document.querySelectorAll('.glass-card, .section-title, .project-card, .audio-bars').forEach(el => {
+        animObserver.observe(el);
+      });
       if (profilePic) {
         profilePic.addEventListener("click", () => {
           profilePic.classList.add("spin-active");
